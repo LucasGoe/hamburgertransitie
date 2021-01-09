@@ -3,16 +3,25 @@
     --menu-bar-height: 10px;
 }
 
+.container {
+    width: var(--menu-bar-width);
+    padding: 20px 0;
+}
+
 #menu {
     background-color: #D84282;
     position: relative;
     width: var(--menu-bar-width);
     height: var(--menu-bar-height);
-    margin: 100px;
+    transition: .5s ease-in-out;
 }
 
-#menu::before,
-#menu::after {
+.container:hover #menu {
+    background-color: transparent;
+}
+
+.container #menu::before,
+.container #menu::after {
     background-color: #D84282;
     display: block;
     content: "";
@@ -21,13 +30,24 @@
     position: absolute;
 }
 
-#menu::before {
+.container #menu::before {
     left: 0;
     top: -20px;
 }
 
-#menu::after {
-    left: 0;
-    top: 20px;
+.container:hover #menu::before {
+    top: 0;
+    transform: rotate(45deg);
+    transition: .5s ease-in-out;
 }
 
+.container #menu::after {
+    left: 0;
+    bottom: -20px;
+}
+
+.container:hover #menu::after{
+    bottom: 0;
+    transform: rotate(-45deg);
+    transition: .5s ease-in-out;
+}
